@@ -1,11 +1,17 @@
 #  NetflixGPT
 - Create react app ✔️
 - Configured tailwind css ✔️
-- Routing
-- Header
+- Routing ✔️
+- Header ✔️
+- Login Form ✔️
+- Sig-up Form ✔️
+- Form Validation  
+- useRef hook
+
+
 
 # Features
-- Login/sign up page
+- Login/sign up page 
   - Sign In /Sign up Form
   - redirect to browse page  
 - Browse page (after authentication)
