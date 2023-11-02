@@ -1,10 +1,21 @@
 import React, { useRef, useState } from "react";
-import Header from "./Header";
+import { useDispatch, useSelector } from "react-redux";
+import { auth } from "../utilts/firebase";
+import { addUserInfo } from "../utilts/Store/userSlice";
 import { checkValidData } from "../utilts/validate";
+import Header from "./Header";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const email = useRef(null);
   const password = useRef(null);
   const fullName = useRef(null);
@@ -13,20 +24,73 @@ const Login = () => {
   };
   const submit = (e) => {
     // Validate form
-    // checkValidData();
     e.preventDefault();
+    let message;
     if (isSignIn) {
-      setErrorMessage(
-        checkValidData(email.current.value, password.current.value)
-      );
+      message = checkValidData(email.current.value, password.current.value);
+      setErrorMessage(message);
     } else {
-      setErrorMessage(
-        checkValidData(
-          email.current.value,
-          password.current.value,
-          fullName.current.value
-        )
+      message = checkValidData(
+        email.current.value,
+        password.current.value,
+        fullName.current.value
       );
+      setErrorMessage(message);
+    }
+    if (message) return;
+    // sign in sign up logic
+    if (!isSignIn) {
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          updateProfile(user, {
+            displayName: fullName.current.value,
+            photoURL:
+              "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg",
+          });
+          const { uid, email, displayName, photoURL } = auth.currentUser;
+          dispatch(
+            addUserInfo({
+              uid: uid,
+              email: email,
+              displayName: displayName,
+              photoUrl: photoURL,
+            })
+          );
+          navigate("/browse");
+          // console.log("Signed up successfully", user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + "-" + errorMessage);
+        });
+    } else {
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          navigate("/browse");
+          console.log("Login successfully", user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          if (errorCode === "auth/invalid-login-credentials") {
+            setErrorMessage("User is not valid");
+          } else {
+            setErrorMessage(errorMessage);
+          }
+        });
     }
   };
 
@@ -59,17 +123,19 @@ const Login = () => {
           <div className="flex flex-col ">
             <input
               ref={email}
-              type="text"
+              type="email"
               className="px-2 py-4 mt-2 text-neutral-100 bg-neutral-800"
-              placeholder="Enter user name or email address"
+              placeholder="Enter Email Address"
+              autoComplete=""
             />
           </div>
           <div className="flex flex-col my-5">
             <input
               ref={password}
-              type="text"
+              type="password"
               className="px-2 py-4 mt-2 text-neutral-100 bg-neutral-800"
               placeholder="Password"
+              autoComplete=""
             />
           </div>
           <button

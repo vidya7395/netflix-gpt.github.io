@@ -1,10 +1,15 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Browse from "./components/Browse";
-import Login from "./components/Login";
+import { Provider } from "react-redux";
 import Body from "./components/Body";
+import appStore from "./utilts/Store/appStore";
 
 function App() {
-  return <Body />;
+  return (
+    <>
+      <Provider store={appStore}>
+        <Body />
+      </Provider>
+    </>
+  );
 }
 
 export default App;
