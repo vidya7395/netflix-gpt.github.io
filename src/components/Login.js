@@ -15,7 +15,6 @@ const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const email = useRef(null);
   const password = useRef(null);
   const fullName = useRef(null);
@@ -52,18 +51,17 @@ const Login = () => {
             displayName: fullName.current.value,
             photoURL:
               "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg",
+          }).then(() => {
+            const { photoURL, uid, email, displayName } = auth.currentUser;
+            dispatch(
+              addUserInfo({
+                uid: uid,
+                email: email,
+                displayName: displayName,
+                photoUrl: photoURL,
+              })
+            );
           });
-          const { uid, email, displayName, photoURL } = auth.currentUser;
-          dispatch(
-            addUserInfo({
-              uid: uid,
-              email: email,
-              displayName: displayName,
-              photoUrl: photoURL,
-            })
-          );
-          navigate("/browse");
-          // console.log("Signed up successfully", user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -77,10 +75,16 @@ const Login = () => {
         password.current.value
       )
         .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          navigate("/browse");
-          console.log("Login successfully", user);
+          const { photoURL, uid, email, displayName } = userCredential.user;
+          console.log("email", photoURL);
+          dispatch(
+            addUserInfo({
+              uid: uid,
+              email: email,
+              displayName: displayName,
+              photoUrl: photoURL,
+            })
+          );
         })
         .catch((error) => {
           const errorCode = error.code;

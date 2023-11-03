@@ -1,20 +1,45 @@
-import { signOut } from "firebase/auth";
-import React from "react";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../utilts/firebase";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addUserInfo, removeUserInfo } from "../utilts/Store/userSlice";
+import { logo } from "../utilts/conts";
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const user = useSelector((store) => {
     console.log(store.user);
     return store.user;
   });
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName, photoUrl } = user;
+        dispatch(
+          addUserInfo({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoUrl: photoUrl,
+          })
+        );
+        navigate("/browse");
+      } else {
+        // User is signed out
+        // ...
+        dispatch(removeUserInfo());
+        navigate("/");
+      }
+      // Unsubscribe when the component unmount
+      // return () => unsubscribe();
+    });
+  }, []);
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        navigate("/");
       })
       .catch((error) => {
         navigate("/error");
@@ -23,11 +48,7 @@ const Header = () => {
   return (
     <div className="flex  items-center justify-between w-full bg-gradient-to-b from-black p-3  z-10 relative">
       <div className="">
-        <img
-          className=" w-44 "
-          src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-          alt=""
-        />
+        <img className=" w-44 " src={logo} alt="Netflix logo" />
       </div>
       {user && (
         <div className="flex items-center">
