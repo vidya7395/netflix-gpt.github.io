@@ -15,7 +15,15 @@
 - Implemented sign-in sign out ✔️
 - Implemented update profile ✔️
 - Unsubscribe to the onAuthStateChanged callback
+- Register TMDB API & create an app & get access token ✔️
+- Make API call ✔️
+- custom hook for now playing movie ✔️
+- Create the movie slice ✔️
+- Created the trailer slice ✔️
+- Embedded the youtube video and made it auto play and mute ✔️
 - Movie list browse page
+  - Video background with title ✔️
+  - Build secondary component
 
 # Bug Fix
 

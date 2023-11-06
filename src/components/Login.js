@@ -9,7 +9,6 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -76,7 +75,6 @@ const Login = () => {
       )
         .then((userCredential) => {
           const { photoURL, uid, email, displayName } = userCredential.user;
-          console.log("email", photoURL);
           dispatch(
             addUserInfo({
               uid: uid,

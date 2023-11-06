@@ -4,13 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../utilts/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { addUserInfo, removeUserInfo } from "../utilts/Store/userSlice";
-import { logo } from "../utilts/conts";
+import { LOGO } from "../utilts/conts";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((store) => {
-    console.log(store.user);
     return store.user;
   });
   useEffect(() => {
@@ -46,9 +45,9 @@ const Header = () => {
       });
   };
   return (
-    <div className="flex  items-center justify-between w-full bg-gradient-to-b from-black p-3  z-10 relative">
+    <div className="flex  items-center justify-between w-full bg-gradient-to-b from-black p-3  z-10 absolute">
       <div className="">
-        <img className=" w-44 " src={logo} alt="Netflix logo" />
+        <img className=" w-44 " src={LOGO} alt="Netflix logo" />
       </div>
       {user && (
         <div className="flex items-center">
