@@ -23,7 +23,7 @@
 - Embedded the youtube video and made it auto play and mute ✔️
 - Movie list browse page
   - Video background with title ✔️
-  - Build secondary component
+  - Build secondary component ✔️
 
 # Bug Fix
 

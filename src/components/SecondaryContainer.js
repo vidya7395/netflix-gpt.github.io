@@ -18,13 +18,7 @@ const SecondaryContainer = () => {
   });
 
   return (
-    <div className="-mt-44 z-10">
-      {/* -Movie list 
-    - Now playing
-    -horror
-    -some other
-     */}
-      {/* {nowPlayingMovies && ( */}
+    <div className="lg:-mt-44 z-10">
       <MovieList data={nowPlayingMovies} title="Now Playing" />
       <MovieList data={topRatedMovies} title="Top Rated" />
       <MovieList data={upComingMovies} title="Upcoming" />

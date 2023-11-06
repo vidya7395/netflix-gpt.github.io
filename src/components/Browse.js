@@ -12,9 +12,9 @@ const Browse = () => {
   useUpcomingMovieHook();
   useTopRatedHooks();
   return (
-    <div className="h-full overflow-hidden flex flex-col">
+    <div className="h-full overflow-auto flex flex-col relative">
       <Header />
-      <div className="flex flex-col overflow-auto h-full">
+      <div className="flex flex-col h-full">
         <MainContainer />
         <SecondaryContainer />
       </div>
