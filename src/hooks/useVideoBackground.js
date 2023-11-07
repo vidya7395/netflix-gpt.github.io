@@ -12,7 +12,7 @@ const useVideoBackgroundHook = (id) => {
     );
     const json = await data.json();
     const officialTrailer = json.results.filter(
-      (data) => data.name == "For the Fans"
+      (data) => data.type === "Trailer"
     );
     dispatch(addTrailerData(officialTrailer[0]));
   };

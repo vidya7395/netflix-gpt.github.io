@@ -2,8 +2,8 @@ import React from "react";
 
 const VideoTitle = ({ overview, title }) => {
   return (
-    <div className="max-w-md lg:absolute top-20 p-5 bg-gradient-to-r from-black">
-      <h1 className="text-7xl capitalize font-bold text-white mt-[10%]">
+    <div className="max-w-md lg:absolute top-20 p-5 ">
+      <h1 className="text-5xl capitalize font-bold text-white mt-[10%]">
         {title}
       </h1>
       <div className="flex items-center mt-4">

@@ -7,7 +7,7 @@ const MainContainer = () => {
     return store.movieData.nowPlayingMovieData;
   });
   if (!movies) return;
-  const { title, overview, id } = movies[0];
+  const { title, overview, id } = movies[8];
   return (
     <div className="p-3 flex flex-col relative scroll-smooth">
       <VideoBackground id={id} />

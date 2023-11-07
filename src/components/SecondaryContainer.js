@@ -18,7 +18,7 @@ const SecondaryContainer = () => {
   });
 
   return (
-    <div className="lg:-mt-44 z-10">
+    <div className="md:-mt-56 z-10">
       <MovieList data={nowPlayingMovies} title="Now Playing" />
       <MovieList data={topRatedMovies} title="Top Rated" />
       <MovieList data={upComingMovies} title="Upcoming" />

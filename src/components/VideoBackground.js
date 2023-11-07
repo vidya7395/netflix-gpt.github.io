@@ -7,9 +7,10 @@ const VideoBackground = ({ id }) => {
   });
   useVideoBackgroundHook(id);
   return (
-    <div className="w-full">
+    <div className="w-full relative">
+      <div className="absolute bg-gradient-to-r from-black top-0 bottom-0 left-0 right-0"></div>
       <iframe
-        className="w-full aspect-video pointer-events-none"
+        className="w-full aspect-video pointer-events-none -mt-[120px]"
         src={
           "https://www.youtube.com/embed/" +
           trailerVideo?.key +
