@@ -24,6 +24,10 @@
 - Movie list browse page
   - Video background with title ✔️
   - Build secondary component ✔️
+  - Build Movie List
+  - Build Movie Card
+- GPT Search Feature
+  - Make Page multilingual
 
 # Bug Fix
 

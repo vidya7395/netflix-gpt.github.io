@@ -9,6 +9,7 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
+import { NETFLIX_BG } from "../utilts/conts";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -102,7 +103,7 @@ const Login = () => {
       <div className="p-3 flex items-center justify-center h-full w-full">
         <img
           className="absolute top-0 bottom-0 left-0 right-0 h-full w-full z-1"
-          src="https://user-images.githubusercontent.com/33485020/108069438-5ee79d80-7089-11eb-8264-08fdda7e0d11.jpg"
+          src={NETFLIX_BG}
           alt=""
         />
         <form className=" p-10 bg-neutral-900 relative z-0  sm:w-9/12 md:w-3/12 bg-opacity-[0.9] rounded">

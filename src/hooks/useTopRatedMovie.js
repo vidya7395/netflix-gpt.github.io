@@ -11,7 +11,6 @@ const useTopRatedHooks = () => {
   const fetchTopRatedMovieData = async () => {
     const data = await fetch(TOP_RATED, API_OPTION);
     const json = await data.json();
-    console.log("Json top rated", json);
     dispatch(addTopRatedMoviesData(json.results));
   };
 };

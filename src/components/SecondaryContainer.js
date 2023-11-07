@@ -13,7 +13,6 @@ const SecondaryContainer = () => {
     return store.movieData.popularMoviesData;
   });
   const topRatedMovies = useSelector((store) => {
-    console.log("top Rated", store.movieData);
     return store.movieData.topRatedMovieData;
   });
 
