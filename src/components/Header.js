@@ -15,6 +15,7 @@ const Header = () => {
   const user = useSelector((store) => {
     return store.user;
   });
+  const isShowSearchText = useSelector((store) => store.gpt.isShowSearch);
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -76,7 +77,7 @@ const Header = () => {
             className="py-2 px-4 m-2 bg-purple-800 text-white rounded"
             onClick={() => handleIsShowSearch()}
           >
-            Search
+            {!isShowSearchText ? "Search" : "Home Page"}
           </button>
           <img className="w-10 rounded" src={user.photoUrl} alt="" />
           <button

@@ -16,6 +16,12 @@ export const NOW_PLAYING_MOVIE_DATA =
 export const UPCOMING_MOVIES =
   "https://api.themoviedb.org/3/movie/upcoming?page=1";
 
+export const SEARCH_MOVIE_API =
+  "https://api.themoviedb.org/3/search/movie?query=andaz%20&include_adult=false&language=en-US&page=1";
+
 export const TOP_RATED = "https://api.themoviedb.org/3/movie/top_rated?&page=1";
 
 export const POSTER_PATH = "https://image.tmdb.org/t/p/w500/";
+
+export const OPEN_AI_KEY =
+  "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";
