@@ -1,7 +1,7 @@
 # NetflixGPT
 
 - Create react app ✔️
-- Configured tailwind css ✔️
+- Configured tailwind CSS ✔️
 - Routing ✔️
 - Header ✔️
 - Login Form ✔️
@@ -9,25 +9,26 @@
 - Form Validation ✔️
 - useRef hook ✔️
 - Setup firebase ✔️
-- Deploy app to production ✔️
-- Create Sign up user account in firebase ✔️
+- Deploy the app to production ✔️
+- Create Sign up a user account in Firebase ✔️
 - Set up a redux store ✔️
 - Implemented sign-in sign out ✔️
 - Implemented update profile ✔️
 - Unsubscribe to the onAuthStateChanged callback
-- Register TMDB API & create an app & get access token ✔️
+- Register TMDB API & create an app & get an access token ✔️
 - Make API call ✔️
 - custom hook for now playing movie ✔️
 - Create the movie slice ✔️
 - Created the trailer slice ✔️
-- Embedded the youtube video and made it auto play and mute ✔️
+- Embedded the youTube video and made it auto-play and mute ✔️
 - Movie list browse page
   - Video background with title ✔️
   - Build secondary component ✔️
-  - Build Movie List
-  - Build Movie Card
+  - Build Movie List ✔️
+  - Build Movie Card ✔️
 - GPT Search Feature
-  - Make Page multilingual
+  - Make Page multilingual ✔️
+- Memoization
 
 # Bug Fix
 

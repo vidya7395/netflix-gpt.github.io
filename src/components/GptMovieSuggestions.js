@@ -15,11 +15,7 @@ const GptMovieSuggestions = () => {
           <h4 className="text-white font-bold">Search Result</h4>
           <div className="flex flex-wrap">
             {getMovieData.map((data, index) => (
-              <MovieList
-                data={data}
-                title={data[index].title}
-                isWrapped={true}
-              />
+              <MovieList data={data} title={data[0]?.title} isWrapped={true} />
             ))}
           </div>
         </div>

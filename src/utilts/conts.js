@@ -24,4 +24,4 @@ export const TOP_RATED = "https://api.themoviedb.org/3/movie/top_rated?&page=1";
 export const POSTER_PATH = "https://image.tmdb.org/t/p/w500/";
 
 export const OPEN_AI_KEY =
-  "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";
+  "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";
