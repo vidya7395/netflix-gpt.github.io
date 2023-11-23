@@ -29,6 +29,7 @@
 - GPT Search Feature
   - Make Page multilingual ✔️
 - Memoization
+- move key in environment file
 
 # Bug Fix
 
