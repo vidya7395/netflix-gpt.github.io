@@ -28,8 +28,12 @@
   - Build Movie Card ✔️
 - GPT Search Feature
   - Make Page multilingual ✔️
-- Memoization
-- move key in environment file
+  - GPT search API call ✔️
+  - fetch GPT movie suggestion from TMDB ✔️
+  - created GPT slice added data ✔️
+  - reused movie list component to make a movie suggestion container ✔️
+- Memoization ✔️
+- moved keys in the environment file ✔️
 
 # Bug Fix
 
